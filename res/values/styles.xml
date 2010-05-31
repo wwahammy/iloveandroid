@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ This file is part of I Love Android.
+
+ I Love Android is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ I Love Android is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with I Love Android.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<resources>
+	<style name="Text">
+	    <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="Text.Username">
+     	<item name="android:textSize">12sp</item>
+    </style>
+    <style name="Text.Tweet">
+    	<item name="android:textSize">11sp</item>
+    </style>
+    
+    <style name="LinearLayout">
+    </style>
+    <style name="LinearLayout.Main">
+    	<item name="android:background">@layout/bg_shape</item>
+    	<item name="android:paddingLeft">7sp</item>
+    	<item name="android:paddingRight">7sp</item>
+    	<item name="android:paddingBottom">7sp</item>
+    </style>
+    
+    <style name ="UserPhoto">
+    	<item name="android:height">48sp</item>
+    	<item name="android:width">48sp</item>
+    	<item name="android:paddingRight">5sp</item>
+    	<item name="android:layout_gravity">center_vertical</item>
+    </style>
+</resources>
