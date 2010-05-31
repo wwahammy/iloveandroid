@@ -1,15 +1,15 @@
+I Love Android is a widget that that displays recent Tweets tagged with #android. Proceeds from sales on the Android Market
+are donated to the Free Software Foundation's High Priority Projects campaign.
 
+BUILD REQUIREMENTS
 
+* A recent version of Eclipse (http://www.eclipse.org)
+* The Android SDK (http://developer.android.com/sdk/index.html)
+* The Android ADT Plugin for Eclipse (also http://developer.android.com/sdk/index.html)
 
-
-
-
-
-
-
+If you're having problems, email me, Eric, at wwahammy@gmail.com
 
 LEGAL STUFF
-
 
 - Code is (C) 2010 Eric Schultz with a strong assist from the Android SDK samples and licensed under the GPL as
 LICENSE.txt explains
