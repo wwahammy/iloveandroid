@@ -101,6 +101,7 @@ public class LoveWidget extends AppWidgetProvider
 class TimedTask extends TimerTask
 {
 	private static Time lastRun = null;
+	private static final int RESULTS_PER_PAGE = 25;
 	Context c = null;
 	TimedTask(Context c )
 	{
@@ -137,7 +138,7 @@ class TimedTask extends TimerTask
 		
 	}
 	
-	private RemoteViews createUpdate(Context context)
+	private synchronized RemoteViews createUpdate(Context context)
 	{
 		RemoteViews out = null;
 		CacheFile cf = new CacheFile(context, "tweet.cache");
@@ -165,6 +166,7 @@ class TimedTask extends TimerTask
 					{
 						qr = null;
 						timestamp = null;
+						cleanCache(c.getCacheDir().getCanonicalPath());
 					}
 					else
 					{
@@ -176,6 +178,7 @@ class TimedTask extends TimerTask
 			{
 				Log.d("TimedTask.createUpdate", "", e);
 				qr = null;
+				cleanCache(c.getCacheDir().getCanonicalPath());
 			}
 			
 			if (qr == null)
@@ -184,6 +187,7 @@ class TimedTask extends TimerTask
 				TwitterFactory fact = new TwitterFactory();
 				Twitter twit = fact.getInstance();
 				Query q = new Query("#android");
+				q.setRpp(RESULTS_PER_PAGE);
 				
 				qr = twit.search(q);
 				nextElemPos = 0;
@@ -234,7 +238,18 @@ class TimedTask extends TimerTask
 		}
 		
 		return out;
-	}			
+	}
+	
+	private void cleanCache(String cacheDir)
+	{
+		File cache = new File(cacheDir);
+		for (File f : cache.listFiles())
+		{
+			if (f.getName() != "tweet.cache")
+				f.delete();
+		}
+	}
+	
 	
 }
 
@@ -295,13 +310,13 @@ class CacheFile
 	}
 	
 	
-	private void loadFromFile() throws CacheFailureException
+	private synchronized void loadFromFile() throws CacheFailureException
 	{
 		try
 		{
 			ObjectInputStream input = 
 				new ObjectInputStream(
-						new BufferedInputStream(
+						new QuietBufferedInputStream(
 								new FileInputStream(fullFilename())));
 			//first object is the query result
 			qr = (QueryResult)input.readObject();
@@ -321,13 +336,13 @@ class CacheFile
 	}
 	
 	
-	void saveToCache() throws CacheFailureException
+	synchronized void saveToCache() throws CacheFailureException
 	{
 		try
 		{
 			ObjectOutputStream output = 
 				new ObjectOutputStream(
-						new BufferedOutputStream(
+						new QuietBufferedOutputStream(
 								new FileOutputStream(fullFilename())));
 			//first object is the query result
 			output.writeObject(qr);
@@ -354,7 +369,7 @@ class CacheFile
 		}
 	}
 	
-	boolean cacheExists() throws CacheFailureException
+	synchronized boolean cacheExists() throws CacheFailureException
 	{
 		try
 		{

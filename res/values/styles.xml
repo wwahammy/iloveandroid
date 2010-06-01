@@ -23,7 +23,7 @@
      	<item name="android:textSize">12sp</item>
     </style>
     <style name="Text.Tweet">
-    	<item name="android:textSize">11sp</item>
+    	<item name="android:textSize">10sp</item>
     </style>
     
     <style name="LinearLayout">

@@ -40,7 +40,7 @@ public class ImageThread extends Thread
 	public void run()
 	{
 		HttpURLConnection conn = null;
-		BufferedOutputStream out = null;
+		QuietBufferedOutputStream out = null;
 		try
 		{
 			List<Tweet> tweets = qr.getTweets();
@@ -55,7 +55,7 @@ public class ImageThread extends Thread
 				    conn.setDoOutput(true);
 				    conn.connect();
 				    
-				    out = new BufferedOutputStream(new FileOutputStream(cacheFile));
+				    out = new QuietBufferedOutputStream(new FileOutputStream(cacheFile));
 				    InputStream in = conn.getInputStream();
 				    
 				    byte[] buffer = new byte[1024];
@@ -66,6 +66,7 @@ public class ImageThread extends Thread
 				    
 				    in.close();
 				    conn.disconnect();
+				    out.flush();
 				    out.close();
 				}
 				out = null;

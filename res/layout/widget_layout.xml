@@ -28,10 +28,10 @@
 	<LinearLayout android:id="@+id/LinearLayout01"
 		android:layout_height="fill_parent" android:layout_width="fill_parent"
 		android:orientation="vertical">
-		<TextView android:text="@+id/Username" android:id="@+id/Username"
+		<TextView android:id="@+id/Username"
 			android:layout_width="fill_parent" android:layout_height="wrap_content" 
 			style="@style/Text.Username"/>
-		<TextView android:text="@+id/Contents" android:id="@+id/Contents"
+		<TextView android:id="@+id/Contents"
 			android:layout_width="fill_parent" android:layout_height="wrap_content" 
 			style="@style/Text.Tweet"/>
 	</LinearLayout>
