@@ -20,4 +20,5 @@
     <string name="app_descrip">A simple widget to display recent Tweets related to Android.</string>
     <string name="service_name">I Love Android Background Service</string>
 	<string name="widget_name">I Love Android</string>
+	<string name="username_default">Loading...</string>
 </resources>

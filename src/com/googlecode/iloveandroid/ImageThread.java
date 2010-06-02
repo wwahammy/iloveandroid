@@ -84,14 +84,9 @@ public class ImageThread extends Thread
 				} catch (IOException e1)
 				{
 					
-					Log.d("ImageThread.run", "", e1);
+					Log.d("ImageThread.run", "Failure!", e1);
 				}
-			
-		}
-		
-		
+		}		
 	}
-	
-	
 
 }

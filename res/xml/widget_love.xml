@@ -16,8 +16,8 @@
  along with I Love Android.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:minWidth="220dip"
-    android:minHeight="72dip"
+    android:minWidth="210dip"
+    android:minHeight="62dip"
     android:updatePeriodMillis="86400000"
     android:initialLayout="@layout/widget_layout"
     />

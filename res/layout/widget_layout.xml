@@ -15,26 +15,30 @@
  You should have received a copy of the GNU General Public License
  along with I Love Android.  If not, see <http://www.gnu.org/licenses/>.
  -->
-<LinearLayout android:id="@+id/main_layout"
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="horizontal" android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	style="@style/LinearLayout.Main">
-
-	<ImageView android:id="@+id/UserPhoto" android:layout_width="wrap_content" android:layout_height="wrap_content"
-	style="@style/UserPhoto"
-	/>
-
-	<LinearLayout android:id="@+id/LinearLayout01"
-		android:layout_height="fill_parent" android:layout_width="fill_parent"
-		android:orientation="vertical">
-		<TextView android:id="@+id/Username"
-			android:layout_width="fill_parent" android:layout_height="wrap_content" 
-			style="@style/Text.Username"/>
-		<TextView android:id="@+id/Contents"
-			android:layout_width="fill_parent" android:layout_height="wrap_content" 
-			style="@style/Text.Tweet"/>
+<FrameLayout android:id="@+id/surrounding_frame"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_height="fill_parent" android:layout_width="fill_parent" 
+android:padding="3dip">
+	<LinearLayout android:id="@+id/main_layout"
+		
+		android:orientation="horizontal" android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		style="@style/LinearLayout.Main">
+	
+		<ImageView android:id="@+id/UserPhoto" android:layout_width="wrap_content" android:layout_height="wrap_content"
+		style="@style/UserPhoto"
+		/>
+	
+		<LinearLayout android:id="@+id/LinearLayout01"
+			android:layout_height="fill_parent" android:layout_width="fill_parent"
+			android:orientation="vertical">
+			<TextView android:text="@string/username_default" android:id="@+id/Username"
+				android:layout_width="fill_parent" android:layout_height="wrap_content" 
+				style="@style/Text.Username"/>
+			<TextView android:id="@+id/Contents"
+				android:layout_width="fill_parent" android:layout_height="wrap_content" 
+				style="@style/Text.Tweet"/>
+		</LinearLayout>
 	</LinearLayout>
-</LinearLayout>
-
+</FrameLayout>
 
