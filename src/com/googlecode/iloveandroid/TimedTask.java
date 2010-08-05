@@ -115,7 +115,7 @@ public class TimedTask extends TimerTask
 				Twitter twit = fact.getInstance();
 				Query q = new Query("#android");
 				q.setRpp(RESULTS_PER_PAGE);
-
+				q.setResultType(Query.POPULAR);
 				qr = twit.search(q);
 				nextElemPos = 0;
 
